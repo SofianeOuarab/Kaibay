@@ -1,0 +1,83 @@
+﻿@using DemoKaibay.Controllers
+@model DemoKaibay.Dtos.AuctionDetailsDto
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    <h4>AuctionDetailsDto</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InitialPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InitialPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CurrentPrice)
+        </dt>
+        <p class = "col-sm-10" id="price-@Model.Id">
+            @Model.CurrentPrice
+        </p>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FinalPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FinalPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AuctionEnded)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuctionEnded)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsEnded)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsEnded)
+        </dd>
+    </dl>
+</div>
+
+<h2> Proposition </h2>
+<div>
+    <label for="say">Price</label>
+    <input id="price" >
+    <input type="button" id="sendButton" value="Send Bid" />
+</div>
+
+
+<div id="getting-started"></div>
+@*<script type="text/javascript">
+  $("#getting-started")
+  .countdown("2022/09/09", function(event) {
+    $(this).text(
+      event.strftime('%D days %H:%M:%S')
+    );
+  });
+</script>*@
+
+<script src="~/js/kaibay.js" asp-append-version="true"></script>

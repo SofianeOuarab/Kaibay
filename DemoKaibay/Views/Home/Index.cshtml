@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IList<DemoKaibay.Dtos.AuctionItemDto>
+
+<div class="text-center">
+    <h1 class="display-4">SignalR Auction</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core and SignalR</a>.</p>
+</div>
+
+<div class="card-deck">
+  <div class="row">
+        @foreach(var item in Model)
+        {
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top mb-3 m-3 col-sm-6" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">@item.Description</p>
+                <p class="card-text" id="price-@item.Id">@item.CurrentPrice</p>
+                <p class="card-text">@item.AuctionEnded</p>
+                <p class="card-text" data-countdown=@item.AuctionEnded></p>
+                <a href="/Auction/@item.Id" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+$('[data-countdown]').each(function() {
+  var $this = $(this), finalDate = $(this).data('countdown');
+  $this.countdown(finalDate, function(event) {
+    $this.html(event.strftime('%D days %H:%M:%S'));
+  });
+});
+</script>
