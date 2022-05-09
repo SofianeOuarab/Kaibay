@@ -18,17 +18,6 @@ namespace DemoKaibay
             this.user=user;
         }
 
-        public async Task UpdateBidCurrentPrice (int auctionId, double newPrice)
-        {
-            await Clients.All.SendAsync("updateBidCurrentPrice", auctionId, newPrice);
-        }
-
-        public async Task NotifyBidUpdate(int auctionId, double newPrice)
-        {
-            await Clients.Group(auctionId.ToString()).SendAsync("NotifyBidUpdate", auctionId, newPrice);
-        }
-
-
         [Authorize]
         [HubMethodName("BidRequest")]
         public async Task BidRequest(int auctionId, double priceBid)

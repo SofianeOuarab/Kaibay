@@ -1,7 +1,10 @@
 ﻿"use strict";
 
-var auctionId = parseInt(location.pathname.split('/')[2]); // magic number here
-const IndexOfFirstElement = 0
+const IndexOfFirstElement = 0;
+const IndexOfUrlId = 2;
+
+var auctionId = parseInt(location.pathname.split('/')[IndexOfUrlId]);
+
 
 document.getElementById("sendButton").disabled = true;
 
